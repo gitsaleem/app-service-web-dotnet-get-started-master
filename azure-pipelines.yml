@@ -6,7 +6,7 @@ trigger:
 
 variables:
   # Azure Resource Manager connection
-  azureSubscription: 'a7c02480-7fbe-428f-92ed-7aeb59b54273'
+  azureSubscription: 'test'
 
   # Web app name
   webAppName: 'demokubessal321'
