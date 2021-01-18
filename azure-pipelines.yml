@@ -13,15 +13,8 @@ variables:
 
   # Working Directory
   workingDirectory: ''
-stages:
-- stage: copy
-  displayName: Copy stage
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'test'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'echo "Memory information"'
+
+
 stages:
 - stage: Build
   displayName: Build stage
@@ -32,6 +25,12 @@ stages:
       vmImage: 'vs2017-win2016'
 
     steps:
+    - task: AzureCLI@2
+      inputs:
+        azureSubscription: 'test'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'echo "Memory information"'
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
