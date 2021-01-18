@@ -44,6 +44,23 @@ stages:
 
     - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
       artifact: drop
+- stage: test
+  displayName: Test stage
+  jobs:
+    - job: Test
+      displayName: Test
+      pool:
+        vmImage: 'vs2017-win2016'
+        
+        steps:
+        - task: VSTest@2
+          inputs:
+            testSelector: 'testAssemblies'
+            testAssemblyVer2: |
+              **\*test*.dll
+              !**\*TestAdapter.dll
+              !**\obj\**
+            searchFolder: '$(System.DefaultWorkingDirectory)'
 
 - stage: Deploy
   displayName: Deploy stage
