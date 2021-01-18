@@ -7,6 +7,7 @@ trigger:
 variables:
   # Azure Resource Manager connection
   azureSubscription: 'test'
+  testvalue: 'hello'
 
   # Web app name
   webAppName: 'demokubessal321'
@@ -30,7 +31,7 @@ stages:
         azureSubscription: 'test'
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
-        inlineScript: 'echo "Memory information"'
+        inlineScript: 'echo $testvalue'
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
