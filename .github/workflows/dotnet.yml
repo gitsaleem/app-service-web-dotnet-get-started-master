@@ -24,7 +24,7 @@ jobs:
       run: nuget restore aspnet-get-started.sln
 
     - name: Build
-      run: msbuild YourSolution.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.5.2
+      run: msbuild aspnet-get-started.sln /p:Configuration=Release /p:TargetFrameworkVersion=v4.5.2
 
     # Add steps for testing if you have tests to run
     # - name: Test
